@@ -18,7 +18,7 @@ public class SquareEmpty {
 					System.out.print(" ");
 				}
 			}
-			System.out.println();// переход на новую строку
+			System.out.println();
 		}
 	}
 }
