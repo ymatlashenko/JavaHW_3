@@ -1,5 +1,6 @@
 package Square;
 
+
 public class SquareEmpty {
 	public static void main(String[] args)
 	{
