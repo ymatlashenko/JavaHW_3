@@ -1,3 +1,4 @@
+package HW_3;
 
 public interface EList {
 	int size();
@@ -8,7 +9,9 @@ public interface EList {
 	int get(int pos);
 	void set(int pos, int val);
 
+
 	void addStart(int val);
+	void addStart(int[] val);
 	void addEnd(int val);
 	void addPos(int pos, int val);
 	int delStart();

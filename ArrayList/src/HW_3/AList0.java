@@ -1,4 +1,5 @@
-public class AList0 implements EList
+package HW_3;
+public abstract class AList0 implements EList
 {
 	private int[] arr = {};
 	
