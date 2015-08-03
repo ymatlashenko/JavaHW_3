@@ -1,6 +1,9 @@
 package HW_3;
-public abstract class AList0 implements EList
+public  class AList0 implements EList
 {
+	public AList0() {
+		
+	}
 	private int[] arr = {};
 	
 	@Override
@@ -237,5 +240,11 @@ public abstract class AList0 implements EList
 			arr[i] = arr[(arr.length)/2+d+i];
 			arr[(arr.length)/2+d+i] = tmp;
 		}
+	}
+
+	@Override
+	public void addStart(int[] val) {
+		// TODO Auto-generated method stub
+		
 	}
 }
