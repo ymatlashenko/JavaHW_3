@@ -1,4 +1,5 @@
 package HW_3;
+
 public  class AList0 implements EList
 {
 	public AList0() {
@@ -8,7 +9,8 @@ public  class AList0 implements EList
 	
 	@Override
 	public int size()
-	{
+	{ 
+		
 		return arr.length;
 	}
 	
@@ -46,12 +48,16 @@ public  class AList0 implements EList
 	@Override
 	public int get(int pos) 
 	{
+		if(size() == 0)
+			throw new ListIsEmptyException();
 		return arr[pos];
 	}
 
 	@Override
 	public void set(int pos, int val) 
 	{
+		if(size() == 0)
+			throw new ListIsEmptyException();
 		arr[pos] = val;
 	}
 	
@@ -131,6 +137,8 @@ public  class AList0 implements EList
 	@Override
 	public int delPos(int pos)
 	{
+		if (size() == 0)
+			throw new ListIsEmptyException();
 		int ret = arr[pos];
 		int[] tmp = new int[arr.length-1];
 		
@@ -149,6 +157,8 @@ public  class AList0 implements EList
 	@Override
 	public int min()
 	{
+		if(size() == 0)
+			throw new ListIsEmptyException();
 		int min = arr[0];
 		for (int i=0; i < arr.length; i++)
 		{
@@ -163,6 +173,8 @@ public  class AList0 implements EList
 	@Override
 	public int max()
 	{
+		if(size() == 0)
+			throw new ListIsEmptyException();
 		int max = arr[0];
 		for (int i = 0; i < arr.length; i++)
 		{
@@ -177,6 +189,8 @@ public  class AList0 implements EList
 	@Override
 	public int minInd()
 	{
+		if (size() == 0)
+			throw new ListIsEmptyException();
 		int min = 0;
 		for (int i=0; i < arr.length; i++)
 		{
@@ -191,6 +205,8 @@ public  class AList0 implements EList
 	@Override
 	public int maxInd()
 	{
+		if (size() == 0)
+			throw new ListIsEmptyException();
 		int max = 0;
 		for (int i=0; i < arr.length; i++)
 		{
@@ -242,9 +258,6 @@ public  class AList0 implements EList
 		}
 	}
 
-	@Override
-	public void addStart(int[] val) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 }

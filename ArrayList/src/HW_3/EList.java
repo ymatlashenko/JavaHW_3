@@ -1,6 +1,7 @@
 package HW_3;
 
-public interface EList {
+public interface EList 
+{
 	int size();
 	void init(int[] ini);
 	int[] toArray();
@@ -11,7 +12,6 @@ public interface EList {
 
 
 	void addStart(int val);
-	void addStart(int[] val);
 	void addEnd(int val);
 	void addPos(int pos, int val);
 	int delStart();

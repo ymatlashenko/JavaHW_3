@@ -1,5 +1,5 @@
 package HW_3;
-public abstract class AList1 implements EList 
+public  class AList1 implements EList 
 {
 
 	private int[] arr = new int[10];
@@ -9,7 +9,9 @@ public abstract class AList1 implements EList
 	{
 		return index;
 	}
-
+	// ==============================================
+	// init
+	// ==============================================
 	@Override
 	public void init(int[] ini)
 	{
@@ -48,7 +50,7 @@ public abstract class AList1 implements EList
 	public int get(int pos) 
 	{
 		if(size() == 0||pos<0||pos>index-1)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		return arr[pos];
 	}
 
@@ -56,14 +58,14 @@ public abstract class AList1 implements EList
 	public void set(int pos, int val) 
 	{
 		if(size() == 0||pos<0||pos>index-1)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		arr[pos] = val;
 	}
 
 	@Override
 	public void addStart(int val)
 	{
-		if (index>arr.length-1) resize();
+		if (index>arr.length-1) resize(val);
 		for (int i = index; i > 0; i--) 
 		{
 			arr[i] = arr[i-1];
@@ -75,7 +77,7 @@ public abstract class AList1 implements EList
 	@Override
 	public void addEnd(int val)
 	{	
-		if (index>arr.length) resize();
+		if (index>arr.length) resize(val);
 		arr[index] = val;
 		index++;
 	}
@@ -84,8 +86,8 @@ public abstract class AList1 implements EList
 	public void addPos(int pos, int val)
 	{
 		if (pos>index)
-			throw new IllegalArgumentException();
-		if (index>arr.length-1) resize();
+			throw new ListIsEmptyException();
+		if (index>arr.length-1) resize(val);
 		for (int i = index; i > pos; i--) 
 		{
 			arr[i] = arr[i-1];
@@ -98,7 +100,7 @@ public abstract class AList1 implements EList
 	public int delStart()
 	{
 		if(size() == 0)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 
 		int ret = arr[0];
 		for (int i = 0; i < index; i++) 
@@ -113,7 +115,7 @@ public abstract class AList1 implements EList
 	public int delEnd()
 	{
 		if(size() == 0)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		index--;
 		int ret = arr[index];
 		arr[index]=0;
@@ -124,7 +126,7 @@ public abstract class AList1 implements EList
 	public int delPos(int pos)
 	{
 		if(size() == 0||pos<0||pos>index-1)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		int ret = arr[pos];
 
 		for(int i=pos;i<index;i++)
@@ -139,7 +141,7 @@ public abstract class AList1 implements EList
 	public int min()
 	{
 		if(index==0) 
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		int min = arr[0];
 		for (int i=0; i < index; i++)
 		{
@@ -155,7 +157,7 @@ public abstract class AList1 implements EList
 	public int max()
 	{
 		if(size() == 0)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		int max = arr[0];
 		for (int i = 0; i < index; i++)
 		{
@@ -171,7 +173,7 @@ public abstract class AList1 implements EList
 	public int minInd()
 	{
 		if(size() == 0)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		int min = 0;
 		for (int i=0; i < index ; i++)
 		{
@@ -191,7 +193,7 @@ public abstract class AList1 implements EList
 	public int maxInd()
 	{
 		if(size() == 0)
-			throw new IllegalArgumentException();
+			throw new ListIsEmptyException();
 		int max = 0;
 		for (int i=0; i < index; i++)
 		{
@@ -243,16 +245,7 @@ public abstract class AList1 implements EList
 		}
 	}
 	
-	private void resize()
-	{
-		int newSize=arr.length+arr.length/3;
-		int[] tmp=new int[newSize];
-		for(int i=0; i<newSize;i++)
-		{
-			tmp[i]=arr[i];
-		}
-		arr=tmp;
-	}
+	
 	
 	private void resize(int newSize)
 	{
@@ -263,4 +256,5 @@ public abstract class AList1 implements EList
 		}
 		arr=tmp;
 	}
-}
+
+	}
